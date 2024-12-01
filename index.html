@@ -1,43 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-function checkCookie() {
-  // Get the value of the 'username' cookie
-  let username = getCookie("username");
-  
-  if (username != "") {
-    alert("Welcome again, " + username);  // If cookie exists, greet user
-  } else {
-    username = prompt("Please enter your name:", "");  // If no cookie, ask for name
-    if (username != "" && username != null) {
-      setCookie("username", username, 365);  // Set cookie for 365 days
-    }
-  }
-}
-
-// Function to set a cookie
-function setCookie(name, value, days) {
-  const d = new Date();
-  d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));  // Set expiration time
-  const expires = "expires=" + d.toUTCString();  // Format expiration date in UTC
-  document.cookie = name + "=" + value + ";" + expires + ";path=/";  // Set the cookie
-}
-
-// Call the checkCookie function on page load
-window.onload = checkCookie;
-
-function checkCookie() {
-  let username = getCookie("username");
-  if (username != "") {
-   alert("Welcome again " + username);
-  } else {
-    username = prompt("Please enter your name:", "");
-    if (username != "" && username != null) {
-      setCookie("username", username, 365);
-    }
-  }
-}
-
 
 <head>
 	<meta charset="utf-8">
@@ -71,6 +34,8 @@ function checkCookie() {
         	</li>
     	</ul>
 	</nav>
+<div id="welcomeMessage"></div>
+	
 	<main>
 		<section>
 			<h2>Our Mission</h2>
@@ -120,5 +85,45 @@ function checkCookie() {
 	<footer>
 		<p>&copy; Sameh Bouarif, 2024</p>
 	</footer>
+
+<script>
+	function checkCookie() {
+  // Get the value of the 'username' cookie
+  let username = getCookie("username");
+  
+  if (username != "") {
+    alert("Welcome again, " + username);  // If cookie exists, greet user
+  } else {
+    username = prompt("Please enter your name:", "");  // If no cookie, ask for name
+    if (username != "" && username != null) {
+      setCookie("username", username, 365);  // Set cookie for 365 days
+    }
+  }
+}
+
+// Function to set a cookie
+function setCookie(name, value, days) {
+  const d = new Date();
+  d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));  // Set expiration time
+  const expires = "expires=" + d.toUTCString();  // Format expiration date in UTC
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";  // Set the cookie
+}
+
+// Call the checkCookie function on page load
+window.onload = checkCookie;
+
+function checkCookie() {
+  let username = getCookie("username");
+  if (username != "") {
+   alert("Welcome again " + username);
+  } else {
+    username = prompt("Please enter your name:", "");
+    if (username != "" && username != null) {
+      setCookie("username", username, 365);
+    }
+  }
+}
+</script>
+	
 </body>
 </html>
