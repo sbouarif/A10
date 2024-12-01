@@ -7,16 +7,17 @@
 	<link rel="shortcut icon" href="images/favicon.ico">
 	<link rel="stylesheet" href="styles/c8_main.css">
 
+	<div id="welcomeMessage"></div>
 
 <script>
-	function setCookie('visitoName',name,50) {
+	function setCookie(name, value, days) {
 		const d = new Date();
 		d.setTime(d.getTime() + (50 * 24 * 60 * 60 * 1000));
-		const expires= "expires=" +d.toUTCSring();
+		const expires= "expires=" + d.toUTCString();
 		document.cookie= name + "=" + value + ";" + expires + ";path=/";
 	}
 
-	fuction getcookie(name) {
+	fuction getCookie(name) {
 		const nameEQ = name + "=";
 		const ca = document.cookie.split(';');
 		for (let i=0; i< ca.length; i++) {
@@ -32,7 +33,7 @@
 		if (visitorName) {
 			document.getElementById('welcomeMessage').textContent = 'Welcome Back,' + visitorName + '!';
 		} else {
-			const name = prompt(What is your name?');
+			const name = prompt('What is your name?');
 				setCookie('visitorName', name, 50);
 			document.getElementById('welcomeMessage').textContent = 'Welcome, ' + name + '!';
 		}
